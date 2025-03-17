@@ -1,0 +1,33 @@
+section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  background-color: blanchedalmond;
+}
+
+.advantages-card {
+  width: 30vw;
+  border: 2px solid black;
+  background-color: aquamarine;
+  width: 25vw;
+  min-width: 200px;
+}
+
+.advantages-card__image {
+  width: 100%;
+}
+
+.advantages-card__card-content {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.advantages-card__card-content__button {
+  background-color: lightseagreen;
+}
+
+.advantages-card__card-content__button:hover {
+  background-color: blue;
+  cursor: pointer;
+}
