@@ -1,15 +1,33 @@
+:root{
+ --main-color: blue;
+}
+
+.transform-check{
+  width: 300px;
+  height: 200px;
+  background-color: cadetblue;
+}
+
+.transform-check:hover{
+  transform: translate3d(50px, 100px, 100px)
+}
+
+
 section {
   display: flex;
+  width: 100%;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: flex-end;
   background-color: blanchedalmond;
+  position: relative;
 }
 
 .advantages-card {
+  --advantages-color: blueviolet;
   width: 30vw;
-  border: 2px solid black;
-  background-color: aquamarine;
+  border: 2px solid var(--main-color);
+  background-color: var(--advantages-color);
   width: 25vw;
   min-width: 200px;
 }
@@ -30,4 +48,91 @@ section {
 .advantages-card__card-content__button:hover {
   background-color: blue;
   cursor: pointer;
+}
+
+@media screen and (min-width: 769px) {
+  #grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    grid-template-areas:
+      "first first second second"
+      "first first third fourth"
+      "first first fifth fifth";
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  #grid-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+
+
+.item1 {
+  background-color: antiquewhite;
+  grid-area: first;
+  width: 100%
+  /* grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 3; */
+}
+
+.item2 {
+  background-color: aqua;
+  grid-area: second;
+  
+  /* grid-column: 3 / 5;
+  grid-column-start: 3;
+  grid-column-end: 5; */
+}
+
+.item3 {
+  background-color: aquamarine;
+  grid-area: third;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.item4 {
+  background-color: pink;
+  grid-area: fourth;
+}
+
+.item5 {
+  background-color: cadetblue;
+  grid-area: fifth;
+  /* grid-column: 3 / 5; */
+}
+
+.item6 {
+  background-color: chartreuse;
+}
+
+.card1 {
+  
+}
+
+.fixed-button{
+  position: fixed;
+  bottom: 100px;
+}
+
+.advantages-card__card-content__header::first-letter{
+  font-size: 2rem;
+  background-color: black;
+  color: azure;
+}
+
+.advantages-card__card-content__text{
+  position: relative;
+  cursor: not-allowed;
+  user-select: none;
 }
