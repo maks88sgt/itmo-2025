@@ -1,0 +1,14 @@
+$main-color: yellow;
+
+.container {
+    display: flex;
+    background-color: $main-color;
+
+    li {
+        background-color: $main-color;
+    }
+
+    &.some-child {
+        font-size: 24px;
+    }
+}
