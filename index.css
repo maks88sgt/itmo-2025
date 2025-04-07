@@ -1,17 +1,46 @@
-:root{
- --main-color: blue;
+:root {
+  --main-color: blue;
 }
 
-.transform-check{
+.transform-check {
   width: 300px;
   height: 200px;
   background-color: cadetblue;
 }
 
-.transform-check:hover{
-  transform: translate3d(50px, 100px, 100px)
+.transform-check:hover {
+  animation-name: spin, scale;
+  animation-composition: accumulate;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
 
 section {
   display: flex;
@@ -63,8 +92,6 @@ section {
   }
 }
 
-
-
 @media (max-width: 768px) {
   #grid-container {
     display: flex;
@@ -73,11 +100,10 @@ section {
   }
 }
 
-
 .item1 {
   background-color: antiquewhite;
   grid-area: first;
-  width: 100%
+  width: 100%;
   /* grid-row-start: 1;
   grid-row-end: 4;
   grid-column-start: 1;
@@ -87,7 +113,7 @@ section {
 .item2 {
   background-color: aqua;
   grid-area: second;
-  
+
   /* grid-column: 3 / 5;
   grid-column-start: 3;
   grid-column-end: 5; */
@@ -117,21 +143,20 @@ section {
 }
 
 .card1 {
-  
 }
 
-.fixed-button{
+.fixed-button {
   position: fixed;
   bottom: 100px;
 }
 
-.advantages-card__card-content__header::first-letter{
+.advantages-card__card-content__header::first-letter {
   font-size: 2rem;
   background-color: black;
   color: azure;
 }
 
-.advantages-card__card-content__text{
+.advantages-card__card-content__text {
   position: relative;
   cursor: not-allowed;
   user-select: none;
