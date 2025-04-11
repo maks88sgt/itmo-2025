@@ -20,17 +20,67 @@
         .container {
         }
       }
+
+      .highlighted {
+        background-color: aqua;
+      }
+      .carousel {
+        width: 400px;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+      }
+      .carousel-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0; /* по умолчанию изображение невидимо */
+        transition: opacity 1s ease-in-out; /* анимация плавной смены */
+      }
+      .carousel-image.active {
+        opacity: 1; /* активное изображение будет плавно появляться */
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <div>Item1</div>
-      <div>Item2</div>
-      <div>Item3</div>
-      <div>Item4</div>
-      <div>Item4</div>
-      <div>Item5</div>
-      <div>Item6</div>
-    </div>
+      <div class="carousel">
+        <img
+          src="https://avatars.dzeninfra.ru/get-zen_doc/1893760/pub_62770264cabaf61720fee04e_62770622e71a825dbd23891c/scale_1200"
+          alt="Image 1"
+          class="carousel-image active"
+        />
+        <img
+          src="https://u.9111s.ru/uploads/202207/24/140f02642b7f12d2b7c999c6731b434b.jpg"
+          alt="Image 2"
+          class="carousel-image"
+        />
+        <img
+          src="https://content.r9cdn.net/rimg/dimg/4b/5e/42239e41-lm-13858-1774d86beaa.jpg"
+          alt="Image 3"
+          class="carousel-image"
+        />
+      </div>
+      
+    </div><button onclick="forward()">forward</button>
+      <button onclick="backward()">backward</button>
+    <script>
+      const images = document.querySelectorAll('.carousel-image');
+      let currentIndex = 0;
+
+      function backward(){
+        images[currentIndex].classList.remove('active');
+        currentIndex=currentIndex - 1 < 0 ? images.length - 1 : currentIndex - 1
+        images[currentIndex].classList.add('active');
+        console.log(currentIndex)
+      }
+      
+      function forward(){
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+        console.log(currentIndex)
+      }
+    </script>
   </body>
 </html>
