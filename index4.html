@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 300px;
+        height: 100px;
+        background-color: aqua;
+      }
+      .newDiv {
+        opacity: 0;
+      }
+      .appearance {
+        transition: opacity 3s ease;
+        opacity: 1;
+      }
+      /* CSS (можно вставить в <style>) */
+      .accordion-item {
+        border: 1px solid #ccc;
+        margin-bottom: 5px;
+      }
+      .accordion-header {
+        background: #f0f0f0;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 10px;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 200px; /* или больше, если контента больше */
+  padding: 10px;
+}
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <button id="button" target="_blank" href="">Click Me</button>
+    </div>
+    <script>
+      // JavaScript
+      class Accordion {
+        constructor(containerId, options = []) {
+          this.container = document.getElementById(containerId);
+          this.options = options;
+          this.render();
+          this.bindEvents();
+        }
+
+        render() {
+          this.container.innerHTML = this.options
+            .map(
+              (opt, index) => `
+      <div class="accordion-item" data-index="${index}">
+        <div class="accordion-header">${opt.title}</div>
+        <div class="accordion-content">${opt.content}</div>
+      </div>
+    `
+            )
+            .join("");
+        }
+
+        bindEvents() {
+          const headers = this.container.querySelectorAll(".accordion-header");
+          headers.forEach((header) => {
+            header.addEventListener("click", () => {
+              const item = header.parentElement;
+              item.classList.toggle("active");
+            });
+          });
+        }
+      }
+      // Использование
+      const myAccordion = new Accordion("container", [
+        {
+          title: "Что такое ООП?",
+          content: "Объектно-ориентированное программирование...",
+        },
+        {
+          title: "Зачем нужны классы?",
+          content: "Классы помогают организовать код...",
+        },
+        {
+          title: "Пример с аккордеоном",
+          content: "Вот он, прямо перед тобой.",
+        },
+      ]);
+    </script>
+  </body>
+</html>
