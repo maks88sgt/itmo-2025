@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+        }
+        .box-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 10px
+        }
+        .button-container{
+            display: flex;
+            gap: 10px
+        }
+        .color-button{
+            border: 1px solid black;
+            height: 20px;
+            padding: 10px;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <div  class="color-button" style="background-color: red;">Red</div>
+        <div class="color-button" style="background-color: green;">Green</div>
+        <div class="color-button" style="background-color: blue;">Blue</div>
+    </div>
+    <div class="box-container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <script>
+        let selectedColor;
+        
+        function getColor(){
+            selectedColor = this.style.backgroundColor
+        }
+        const buttonsContainer = document.querySelector(".button-container")
+
+        buttonsContainer.addEventListener("click", (ev)=>{
+            if(ev.target.classList.contains("color-button")){
+                selectedColor = ev.target.style.backgroundColor
+            }
+        })
+        
+        // buttons.forEach((button)=>{
+        //     button.addEventListener("click", getColor)
+        // })
+
+        function setColor(){
+            this.style.backgroundColor = selectedColor
+        }
+
+        const boxes = document.querySelectorAll(".box")
+        
+        boxes.forEach((box)=>{
+            box.addEventListener("click", setColor)
+        })
+    </script>
+</body>
+</html>
