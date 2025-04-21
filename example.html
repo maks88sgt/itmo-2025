@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        margin: 0;
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        gap: 5px;
+      }
+      
+      .cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        border: 2px solid #ccc;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        user-select: none;
+      }
+      
+      .cell:hover {
+        background-color: #eaeaea;
+      }
+      
+      .cell.filled {
+        cursor: default;
+        color: #333;
+      }
+      </style>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script type="module" src="./example.js"></script>
+</html>

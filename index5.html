@@ -19,13 +19,34 @@
         .product-card__price{
             font-weight: bold;
         }
+        .modal-overlay{
+            position: fixed;
+            top: 0;
+            left:0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal{
+            background-color: white;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="text">
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, ea quisquam, maxime similique quas fugit error molestiae vero, sequi nostrum voluptate aspernatur hic est reiciendis sint culpa aut corrupti eos.
     </div>
     <div class="container"></div>
+    <button id="show-modal">Open Modal</button>
+    <button id="show-modal2">Second Modal</button>
 </body>
 <script src="./index.js"></script>
 </html>
