@@ -8,7 +8,23 @@
 </head>
 <body>
   <div id="app">
-    <div id="game-screen" class="screen">
+    <div id="initial-screen" class="screen">
+      <label for="player-name">Введите имя</label>
+      <input id="player-name" type="text">
+      <fieldset>
+        <div>
+          <input type="radio" id="X" name="markerType" value="X" checked/>
+          <label for="X">X</label>
+        </div>
+      
+        <div>
+          <input type="radio" id="O" name="markerType" value="O" />
+          <label for="O">O</label>
+        </div>
+      </fieldset>
+      <button id="start-btn">Начать новую игру</button>
+    </div>
+    <div id="game-screen" class="screen hidden">
       <h2 id="current-turn"></h2>
       <div id="board" class="board"></div>
       <button id="restart-btn">Начать заново</button>
